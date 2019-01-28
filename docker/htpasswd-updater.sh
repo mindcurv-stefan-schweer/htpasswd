@@ -3,7 +3,7 @@
 echo "This is a script that is updating htpasswd from openshift secret."    
 # create md5sum of htpasswd initially
 
-md5sum /htpasswd > /htpasswd.md5
+md5sum /input/admin.htpasswd > /htpasswd.md5
 
 cleanup ()                                                                 
 {                                                                          
@@ -16,8 +16,8 @@ trap cleanup SIGINT SIGTERM
 while true                                                                
 do                                                                         
   md5sum --status -c /htpasswd.md5 \
-  || cp /htpasswd /admin.htpasswd \
-  && md5sum /htpasswd > /htpasswd.md5 \
+  || cp -f /input/admin.htpasswd /host/admin.htpasswd \
+  && md5sum /input/htpasswd > /htpasswd.md5 \
   && echo "$(date "+%Y-%m-%d %H:%M:%S") updated htpasswd!"
   sleep 15 $
   wait $! 
