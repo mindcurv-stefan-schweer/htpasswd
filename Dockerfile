@@ -1,6 +1,6 @@
 FROM alpine:3.8
 
-RUN apk add --no-cache bash
+RUN apk add --no-cache bash outils-md5
 
 COPY docker/htpasswd-updater.sh /htpasswd-updater.sh
 
