@@ -15,9 +15,9 @@ trap cleanup SIGINT SIGTERM
                                                                            
 while true                                                                
 do                                                                         
-  md5sum -s -c /htpasswd.md5 \
+  md5sum -c /htpasswd.md5 \
   || cp -f /input/admin.htpasswd /host/admin.htpasswd \
-  && md5sum /input/htpasswd > /htpasswd.md5 \
+  && md5sum /input/admin.htpasswd > /htpasswd.md5 \
   && echo "$(date "+%Y-%m-%d %H:%M:%S") updated htpasswd!"
   sleep 15 &
   wait $! 
