@@ -21,20 +21,23 @@ spec:
         node-role.kubernetes.io/master: 'true'        
       containers:
       - name: htpasswd-updater
-        image: steppodrom/htpasswd-updater:1.0.0
+        image: docker-mirror.tmecosys.cn/steppodrom/htpasswd-updater:1.0.0
         resources:
           limits:
             memory: 200Mi
           requests:
             cpu: 100m
             memory: 200Mi
+        securityContext:
+          privileged: true
         volumeMounts:
         - name: master-htpasswd
           mountPath: /input
+          readOnly: true
         - name: host-htpasswd
           mountPath: /host/admin.htpasswd
-          readOnly: true
       terminationGracePeriodSeconds: 30
+      serviceAccount: htpasswd-updater
       volumes:
       - name: host-htpasswd
         hostPath:

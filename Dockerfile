@@ -6,4 +6,4 @@ COPY docker/htpasswd-updater.sh /htpasswd-updater.sh
 
 RUN chmod a+x /htpasswd-updater.sh
 
-CMD ["/htpasswd.sh"]
+CMD ["/htpasswd-updater.sh"]
