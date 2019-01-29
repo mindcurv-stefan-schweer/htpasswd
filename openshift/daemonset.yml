@@ -47,3 +47,10 @@ spec:
       - name: master-htpasswd
         secret:
           secretName: master-htpasswd
+---
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: htpasswd-updater
+  namespace: default
+
