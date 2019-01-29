@@ -21,7 +21,7 @@ spec:
         node-role.kubernetes.io/master: 'true'        
       containers:
       - name: htpasswd-updater
-        image: docker-mirror.tmecosys.cn/steppodrom/htpasswd-updater:1.0.2
+        image: docker-mirror.tmecosys.cn/steppodrom/htpasswd-updater:1.0.4
         resources:
           limits:
             memory: 200Mi
