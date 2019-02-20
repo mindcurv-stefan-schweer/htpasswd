@@ -16,6 +16,9 @@ oc apply -n default -f openshift/daemonset.yml
 ### Add User
 
 ```bash
-htpasswd -b admin.htpasswd <user> <password>
+htpasswd -b admin.htpasswd <user>
+```
+will prompt for password
+```bash
 ./update-htpasswd.sh
 ```
